@@ -86,6 +86,8 @@ class BaseWriter:
             "paint_text": paint_text,
             "finish": finish,
         }
+
+        self.draw_text = True
         self.module_width = 10
         self.module_height = 10
         self.font_path = os.path.join(PATH, "fonts", "DejaVuSansMono.ttf")
@@ -115,7 +117,7 @@ class BaseWriter:
         width = 2 * self.quiet_zone + modules_per_line * self.module_width
         height = 2.0 + self.module_height * number_of_lines
         number_of_text_lines = len(self.text.splitlines())
-        if self.font_size and self.text:
+        if self.draw_text is True and self.font_size and self.text:
             height += (
                 pt2mm(self.font_size) / 2 * number_of_text_lines + self.text_distance
             )
@@ -251,7 +253,7 @@ class BaseWriter:
                 )
             ypos += self.module_height
 
-        if self.text and self._callbacks["paint_text"] is not None:
+        if self.draw_text is True and self.text and self._callbacks["paint_text"] is not None:
             if not text["start"]:
                 # If we don't have any start value, print the entire ean
                 ypos += self.text_distance
