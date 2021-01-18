@@ -1,20 +1,15 @@
-from pathlib import Path
-
 from setuptools import find_packages
 from setuptools import setup
 
 setup(
-    name="python-barcode",
+    name="parcode",
+    version="1.0.0",
     packages=find_packages(),
-    url="https://github.com/WhyNotHugo/python-barcode",
+    url="https://github.com/hiel/parcode",
     license="MIT",
-    author="Hugo Osvaldo Barrera et al",
-    author_email="hugo@barrera.io",
-    description=(
-        "Create standard barcodes with Python. No external modules needed. "
-        "(optional Pillow support included)."
-    ),
-    long_description=Path("README.rst").read_text(),
+    author="hiel",
+    author_email="yangjunghooon@gmail.com",
+    description="Python Barcode Generator",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
